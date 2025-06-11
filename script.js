@@ -20,14 +20,20 @@
 // Mobile Menu Toggle
 
 // Mobile Menu Toggle
-const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-const navMenu = document.querySelector('.nav-menu');
+
+// Mobile Menu Toggle
+const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+const navMenu = document.getElementById('nav-menu');
 
 if (mobileMenuToggle && navMenu) {
+    console.log('Mobile menu toggle and nav menu found');
     mobileMenuToggle.addEventListener('click', () => {
+        console.log('Hamburger menu clicked');
         navMenu.classList.toggle('active');
         mobileMenuToggle.classList.toggle('active');
     });
+} else {
+    console.error('Mobile menu toggle or nav menu not found');
 }
 
 // const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
