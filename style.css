@@ -777,3 +777,48 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Add to your existing CSS */
+.hero {
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+  text-align: center;
+  padding: 120px 0 80px;
+}
+
+.checklist-group {
+  max-width: 400px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+}
+
+.checklist-item.checked {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.checklist-icon {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+/* For the unchecked maple leaf (if using outline version) */
+.checklist-item:not(.checked) .checklist-icon {
+  opacity: 0.7;
+  filter: brightness(0) invert(0.8);
+}

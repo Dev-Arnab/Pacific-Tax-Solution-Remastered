@@ -1,12 +1,32 @@
+// Replace your current mobile menu JS with this
+document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('nav-menu');
+
+  toggle.addEventListener('click', function() {
+    this.classList.toggle('active');
+    menu.classList.toggle('active');
+    document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+  });
+
+  // Close when clicking links (keep your existing code)
+  document.querySelectorAll('.nav-link, .dropdown-item').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('active');
+      toggle.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+});
 // Mobile Menu Toggle
 
-const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-const navMenu = document.getElementById('nav-menu');
+// const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+// const navMenu = document.getElementById('nav-menu');
 
-mobileMenuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    mobileMenuToggle.classList.toggle('active');
-});
+// mobileMenuToggle.addEventListener('click', () => {
+//     navMenu.classList.toggle('active');
+//     mobileMenuToggle.classList.toggle('active');
+// });
 
 // Close mobile menu when clicking on a link
 const navLinks = document.querySelectorAll('.nav-link, .dropdown-item');
