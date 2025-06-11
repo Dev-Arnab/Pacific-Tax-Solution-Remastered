@@ -110,7 +110,7 @@ formInputs.forEach(input => {
 });
 
 // Contact Form Submission
-const contactForm = document.getElementById('contact-form');
+//const contactForm = document.getElementById('contact-form');
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -140,48 +140,6 @@ if (contactForm) {
     }
   });
 }
-
-// Form validation and submission
-// contactForm.addEventListener('submit', async function(e) {
-//     e.preventDefault();
-    
-//     // Get form data
-//     const formData = new FormData(this);
-//     const data = Object.fromEntries(formData);
-    
-//     // Basic validation
-//     if (!data.name || !data.email || !data.service || !data.message) {
-//         showNotification('Please fill in all required fields.', 'error');
-//         return;
-//     }
-    
-//     // Email validation
-//     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//     if (!emailRegex.test(data.email)) {
-//         showNotification('Please enter a valid email address.', 'error');
-//         return;
-//     }
-    
-//     // Simulate form submission
-//     const submitButton = this.querySelector('button[type="submit"]');
-//     const originalText = submitButton.textContent;
-    
-//     submitButton.textContent = 'Sending...';
-//     submitButton.disabled = true;
-    
-//     // Simulate API call
-//     setTimeout(() => {
-//         showNotification('Thank you! Your message has been sent successfully. We\'ll get back to you soon.', 'success');
-//         contactForm.reset();
-//         submitButton.textContent = originalText;
-//         submitButton.disabled = false;
-        
-//         // Remove focused class from all form groups
-//         document.querySelectorAll('.form-group').forEach(group => {
-//             group.classList.remove('focused');
-//         });
-//     }, 2000);
-// });
 
 // Notification system
 function showNotification(message, type = 'info') {
@@ -402,93 +360,3 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-
-
-
-
-
-//Working code below
-// Contact Form Handling with Formspree
-// const contactForm = document.getElementById('contact-form');
-// if (contactForm) {
-//     const formInputs = contactForm.querySelectorAll('input, select, textarea');
-    
-//     // Add floating label effect
-//     formInputs.forEach(input => {
-//         input.addEventListener('focus', function() {
-//             this.parentElement.classList.add('focused');
-//         });
-        
-//         input.addEventListener('blur', function() {
-//             if (this.value === '') {
-//                 this.parentElement.classList.remove('focused');
-//             }
-//         });
-        
-//         // Check if input has value on page load
-//         if (input.value !== '') {
-//             input.parentElement.classList.add('focused');
-//         }
-//     });
-
-//     // Form validation and submission
-//     contactForm.addEventListener('submit', async function(e) {
-//         e.preventDefault();
-        
-//         // Get form elements
-//         const submitButton = this.querySelector('button[type="submit"]');
-//         const originalText = submitButton.textContent;
-        
-//         // Validate form
-//         const name = this.elements['name'].value.trim();
-//         const email = this.elements['email'].value.trim();
-//         const service = this.elements['service'].value;
-//         const message = this.elements['message'].value.trim();
-        
-//         if (!name || !email || !service || !message) {
-//             showNotification('Please fill in all required fields.', 'error');
-//             return;
-//         }
-        
-//         // Email validation
-//         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//         if (!emailRegex.test(email)) {
-//             showNotification('Please enter a valid email address.', 'error');
-//             return;
-//         }
-        
-//         // Disable button during submission
-//         submitButton.textContent = 'Sending...';
-//         submitButton.disabled = true;
-        
-//         try {
-//             // Send to Formspree
-//             const response = await fetch(this.action, {
-//                 method: 'POST',
-//                 body: new FormData(this),
-//                 headers: {
-//                     'Accept': 'application/json'
-//                 }
-//             });
-            
-//             if (response.ok) {
-//                 showNotification('Thank you! Your message has been sent successfully. We\'ll get back to you soon.', 'success');
-//                 this.reset();
-                
-//                 // Remove focused class from all form groups
-//                 document.querySelectorAll('.form-group').forEach(group => {
-//                     group.classList.remove('focused');
-//                 });
-//             } else {
-//                 const errorData = await response.json();
-//                 throw new Error(errorData.error || 'Form submission failed');
-//             }
-//         } catch (error) {
-//             console.error('Form submission error:', error);
-//             showNotification('There was a problem sending your message. Please try again later.', 'error');
-//         } finally {
-//             submitButton.textContent = originalText;
-//             submitButton.disabled = false;
-//         }
-//     });
-// }
