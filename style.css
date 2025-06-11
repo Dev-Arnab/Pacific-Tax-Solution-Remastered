@@ -777,3 +777,56 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* 
+//Extra from deeoseek to fix ham buerger option */
+/* Add to your existing mobile menu styles */
+@media (max-width: 768px) {
+    body.menu-open {
+        overflow: hidden;
+    }
+    
+    .nav-menu {
+        overflow-y: auto;
+        z-index: 999;
+    }
+    
+    .mobile-menu-toggle {
+        z-index: 1001;
+    }
+    
+    /* Ensure dropdowns are visible in mobile */
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        background: rgba(220, 38, 38, 0.05);
+        margin: 10px 0;
+        padding: 0;
+        width: 100%;
+    }
+    
+    .dropdown-item {
+        padding: 12px 20px;
+        border-left: none;
+    }
+    
+    .nav-dropdown .nav-link {
+        pointer-events: none; /* Prevent link from closing menu */
+    }
+}
+
+/* Add to your CSS */
+.mobile-menu-toggle {
+    cursor: pointer;
+    z-index: 1001;
+    position: relative; /* Ensure it's above other elements */
+}
+
+/* Make sure nothing is covering the button */
+.nav-container {
+    position: relative;
+}
