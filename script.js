@@ -1,41 +1,36 @@
-// console.log('Mobile menu elements:', {
-//     toggle: document.getElementById('mobile-menu-toggle'),
-//     menu: document.getElementById('nav-menu')
-// });
-// // Replace all mobile menu code in script.js with this minimal version
-// document.addEventListener('DOMContentLoaded', function() {
-//     const toggle = document.getElementById('mobile-menu-toggle');
-//     const menu = document.getElementById('nav-menu');
-    
-//     if (toggle && menu) {
-//         toggle.addEventListener('click', function() {
-//             console.log('Menu button clicked'); // Check if this appears in console
-//             menu.classList.toggle('active');
-//             toggle.classList.toggle('active');
-//         });
-//     } else {
-//         console.error('Could not find menu elements:', {toggle, menu});
-//     }
-// });
-// Mobile Menu Toggle
-
-// Mobile Menu Toggle
-
 // Mobile Menu Toggle
 const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
 const navMenu = document.getElementById('nav-menu');
 
 if (mobileMenuToggle && navMenu) {
     console.log('Mobile menu toggle and nav menu found');
-    mobileMenuToggle.addEventListener('click', () => {
-        console.log('Hamburger menu clicked');
+    const toggleMenu = (e) => {
+        e.preventDefault(); // Prevent default for both click and touch
+        console.log('Hamburger menu triggered (event type: ' + e.type + ')');
         navMenu.classList.toggle('active');
         mobileMenuToggle.classList.toggle('active');
+    };
+    // Handle both click and touch events
+    ['click', 'touchstart'].forEach(eventType => {
+        mobileMenuToggle.addEventListener(eventType, toggleMenu, { passive: false });
     });
 } else {
     console.error('Mobile menu toggle or nav menu not found');
 }
 
+// Add touch support for closing menu on link tap
+navLinks.forEach(link => {
+    link.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        navMenu.classList.remove('active');
+        mobileMenuToggle.classList.remove('active');
+        // Trigger the link's default behavior (e.g., navigate to href)
+        if (link.href) {
+            window.location.href = link.href;
+        }
+    }, { passive: false });
+});
+// Mobile Menu Toggle
 // const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
 // const navMenu = document.getElementById('nav-menu');
 
@@ -45,13 +40,13 @@ if (mobileMenuToggle && navMenu) {
 // });
 
 // Close mobile menu when clicking on a link
-const navLinks = document.querySelectorAll('.nav-link, .dropdown-item');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        mobileMenuToggle.classList.remove('active');
-    });
-});
+// const navLinks = document.querySelectorAll('.nav-link, .dropdown-item');
+// navLinks.forEach(link => {
+//     link.addEventListener('click', () => {
+//         navMenu.classList.remove('active');
+//         mobileMenuToggle.classList.remove('active');
+//     });
+// });
 
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
