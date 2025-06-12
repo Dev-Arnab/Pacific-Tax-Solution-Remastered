@@ -779,3 +779,125 @@ body {
 }
 
 
+/* New Feature!!!*/
+/* Hero Section */
+.hero {
+    position: relative;
+    padding: 120px 0;
+    background: white;
+    color: #333;
+}
+
+.hero-content {
+    max-width: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    line-height: 1.2;
+    color: #DC2626;
+    grid-column: 1 / -1;
+}
+
+.hero-features {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.feature-icon {
+    color: #DC2626;
+    font-size: 18px;
+}
+
+.hero-services {
+    background: #F9FAFB;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid rgba(220, 38, 38, 0.1);
+}
+
+.hero-services h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #1F2937;
+}
+
+.hero-services ul {
+    list-style: none;
+}
+
+.hero-services li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.hero-services li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #DC2626;
+    font-weight: bold;
+}
+
+.hero-contact {
+    background: #F9FAFB;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid rgba(220, 38, 38, 0.1);
+}
+
+.hero-contact h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #1F2937;
+}
+
+.hero-contact p {
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: #DC2626;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.btn-primary:hover {
+    background: #B91C1C;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+}
