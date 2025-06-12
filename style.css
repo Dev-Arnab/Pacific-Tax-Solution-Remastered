@@ -194,22 +194,9 @@ body {
 /* Hero Section */
 .hero {
     position: relative;
-    min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
-    color: white;
     overflow: hidden;
-}
-
-.hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='m0 40l40-40h-40v40zm40 0v-40h-40l40 40z'/%3E%3C/g%3E%3C/svg%3E");
-    animation: float 20s linear infinite;
 }
 
 .hero-content {
@@ -228,21 +215,21 @@ body {
     line-height: 1.2;
 }
 
-.hero-subtitle {
+/* .hero-subtitle {
     font-size: 1.25rem;
     margin-bottom: 40px;
     opacity: 0.9;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-}
+} */
 
-.hero-buttons {
+/* .hero-buttons {
     display: flex;
     gap: 20px;
     justify-content: center;
     margin-bottom: 60px;
-}
+} */
 
 .btn-primary {
     background: white;
@@ -260,7 +247,7 @@ body {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-.btn-secondary {
+/* .btn-secondary {
     background: transparent;
     color: white;
     padding: 15px 30px;
@@ -269,7 +256,7 @@ body {
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
-}
+} */
 
 .btn-secondary:hover {
     background: white;
@@ -292,9 +279,6 @@ body {
 }
 
 .feature-icon {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 5px 8px;
-    border-radius: 50%;
     font-size: 14px;
 }
 
@@ -641,15 +625,6 @@ body {
     }
 }
 
-@keyframes float {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-40px);
-    }
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {
@@ -778,126 +753,282 @@ body {
     transform: translateY(0);
 }
 
+/* New Feature from DEEPSEEK */
+/* New Hero Section */
+/* New Hero Section Styles */
 
-/* New Feature!!!*/
-/* Hero Section */
 .hero {
     position: relative;
-    padding: 120px 0;
+    padding: 80px 0;
     background: white;
-    color: #333;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* The red background shape */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%; /* Adjust width of the red background */
+    height: 100%; /* Make it span full height of the hero section */
+    background: #c63007; /* Solid orangish red */
+    border-top-left-radius: 30% 50%; /* Curved top-left edge */
+    border-bottom-left-radius: 70% 50%; /* Curved bottom-left edge */
+    z-index: 0; /* Place behind content */
+}
+
+.hero .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1; /* Ensure content is above the red background */
+    max-width: 1200px; /* Max width for content */
+    margin: 0 auto; /* Center the container */
+    padding: 0 30px; /* Horizontal padding */
+    flex-grow: 1;
 }
 
 .hero-content {
-    max-width: 100%;
-    margin: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start;
+    flex: 1;
+    max-width: 550px;
+    padding-top: 50px;
+    text-align: left; /* Ensure left alignment for content */
 }
 
 .hero-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 30px;
-    line-height: 1.2;
-    color: #DC2626;
-    grid-column: 1 / -1;
+    font-size: 2.8rem;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: bold;
+    text-align: left; /* Explicitly left-align the main heading */
 }
 
 .hero-features {
+    margin: 0  0;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin-bottom: 30px;
+    align-items: flex-start; /* Ensure feature items are left-aligned */
 }
 
 .feature-item {
     display: flex;
     align-items: center;
     gap: 10px;
+    font-size: 1.2rem;
     font-weight: 500;
 }
 
 .feature-icon {
-    color: #DC2626;
-    font-size: 18px;
+    color: green;
+    font-weight: bold;
+    font-size: 1.3rem;
 }
 
 .hero-services {
-    background: #F9FAFB;
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid rgba(220, 38, 38, 0.1);
+    margin-top: 60px;
+    padding-bottom: 20px;
+    text-align: left; /* Ensure services section is left-aligned */
 }
 
 .hero-services h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #1F2937;
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    color: #333;
+    font-weight: bold;
+    text-align: left; /* Explicitly left-align the services heading */
 }
 
 .hero-services ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .hero-services li {
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
     position: relative;
-    padding-left: 25px;
+    padding-left: 30px;
+    font-size: 1.1rem;
 }
 
-.hero-services li::before {
-    content: '✓';
+.hero-services li span {
     position: absolute;
     left: 0;
-    color: #DC2626;
+    font-size: 1.2rem;
+    color: #333;
     font-weight: bold;
 }
 
-.hero-contact {
-    background: #F9FAFB;
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid rgba(220, 38, 38, 0.1);
+.hero-right-section {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* Since the contact section will now blend with the red background,
+       this section effectively defines the "container" within that red area */
 }
 
-.hero-contact h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #1F2937;
+.hero-maple {
+    position: relative;
+    width: 350px;
+    height: 400px;
+    margin-top: 0;
+    margin-left: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 10px; /* Space between maple leaf and contact info */
+    z-index: 2; /* Ensure maple leaf is above contact text */
+}
+
+.maple-img {
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.hero-contact {
+     /* Make background transparent */
+    color: white; /* Text color now needs to be white to contrast with red background */
+    text-align: left;
+    padding: 0px 25px;
+    margin-left: 95%;
+    border-radius: 12px;
+    box-shadow: none; /* Remove shadow */
+    width: 100%;
+    max-width: 500px;
+    z-index: 1; /* Ensure contact text is below the maple leaf but above the red background */
+}
+
+.hero-contact h1 {
+    font-size: 2.2rem;
+    font-family: sans-serif;
+    color: white; /* Heading color now white */
+    margin-bottom: 10px;
+    font-weight: 300;
 }
 
 .hero-contact p {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: left;
+    justify-content: left;
 }
 
-.btn-primary {
-    display: inline-block;
-    background: #DC2626;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    margin-top: 15px;
+.hero-contact p span {
+    margin-right: 8px;
+    font-size: 1.2rem;
+    color: white;;
 }
 
-.btn-primary:hover {
-    background: #B91C1C;
-    transform: translateY(-2px);
+.hi{
+    margin-bottom: 20px;
 }
 
-@media (max-width: 768px) {
-    .hero-content {
-        grid-template-columns: 1fr;
+.hero-contact a {
+    background: #f5f4f4; /* Button color */
+    color: black; /* Button text color */
+    margin-top: 100px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .hero {
+        padding: 40px 0;
     }
-    
+
+    .hero::before {
+        width: 100%;
+        height: 55%;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .hero .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .hero-content {
+        order: 2;
+        text-align: center; /* Center content for mobile */
+        max-width: 100%;
+        padding-top: 30px;
+    }
+
+    .hero-title,
+    .hero-services h3 {
+        text-align: center; /* Center headings for mobile */
+    }
+
+    .hero-features {
+        align-items: center;
+    }
+
+    .hero-services {
+        align-items: center;
+    }
+
+    .hero-services li {
+        padding-left: 0;
+        justify-content: center;
+    }
+
+    .hero-services li span {
+        position: static;
+        margin-right: 5px;
+    }
+
+    .hero-right-section {
+        order: 1;
+        width: 100%;
+        padding-top: 30px;
+    }
+
+    .hero-maple {
+        width: 180px; /* Slightly larger on mobile than previous but smaller than desktop */
+        height: 180px;
+        margin-bottom: 15px;
+    }
+
+    .hero-contact {
+        width: 90%;
+        max-width: 350px;
+        padding: 20px; /* Adjust padding for mobile */
+    }
+
+    .about-us-placeholder {
+        padding: 30px 0;
+        font-size: 1.4rem;
+    }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 576px) {
     .hero-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
+    }
+
+    .hero-contact h1 {
+        font-size: 1.8rem;
+    }
+
+    .btn-book-nav {
+        padding: 12px 25px;
     }
 }
