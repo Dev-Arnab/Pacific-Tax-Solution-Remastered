@@ -40,7 +40,7 @@ body {
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1650px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
@@ -58,6 +58,11 @@ body {
 .logo-icon {
     font-size: 24px;
     animation: pulse 2s infinite;
+}
+
+.logo-icon img{
+    width: 60px;
+    padding-top: 10px;
 }
 
 .logo-text {
@@ -641,6 +646,13 @@ body {
         transition: left 0.3s ease;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     }
+    .dropdown-menu {
+        display: none;
+    }
+
+    .dropdown-menu.active {
+        display: block;
+    }
 
     .nav-menu.active {
         left: 0;
@@ -768,6 +780,8 @@ body {
     justify-content: flex-start;
 }
 
+
+
 /* The red background shape */
 .hero::before {
     content: "";
@@ -782,17 +796,19 @@ body {
     z-index: 0; /* Place behind content */
 }
 
-.hero .container {
+.hero-container {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     position: relative;
-    z-index: 1; /* Ensure content is above the red background */
-    max-width: 1200px; /* Max width for content */
-    margin: 0 auto; /* Center the container */
-    padding: 0 30px; /* Horizontal padding */
-    flex-grow: 1;
+    z-index: 1;
+    max-width: 1700px;
+    margin: 0 auto;
+    margin-left: 20px; 
+    padding: 0 30px; 
+    flex-grow: 1; 
 }
+
 
 .hero-content {
     flex: 1;
@@ -870,6 +886,7 @@ body {
 
 .hero-right-section {
     width: 500px;
+    margin-left: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -902,7 +919,7 @@ body {
      /* Make background transparent */
     color: white; /* Text color now needs to be white to contrast with red background */
     text-align: left;
-    padding: 0px 25px;
+    padding: 0px 30px;
     margin-left: 95%;
     border-radius: 12px;
     box-shadow: none; /* Remove shadow */
@@ -913,7 +930,7 @@ body {
 
 .hero-contact h1 {
     font-size: 2.2rem;
-    font-family: sans-serif;
+    font-family: "Inter";
     color: white; /* Heading color now white */
     margin-bottom: 10px;
     font-weight: 300;

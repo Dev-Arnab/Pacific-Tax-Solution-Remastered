@@ -18,19 +18,50 @@ if (mobileMenuToggle && navMenu) {
     console.error('Mobile menu toggle or nav menu not found');
 }
 
+// Toggle services dropdown on mobile
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+const dropdownMenu = document.querySelector('.dropdown-menu');
+
+if (dropdownToggle && dropdownMenu) {
+    ['click', 'touchstart'].forEach(eventType => {
+        dropdownToggle.addEventListener(eventType, (e) => {
+            e.preventDefault();
+            dropdownMenu.classList.toggle('active');
+        }, { passive: false });
+    });
+}
+
 // Add touch support for closing menu on link tap
+// navLinks.forEach(link => {
+//     link.addEventListener('touchstart', (e) => {
+//         e.preventDefault();
+//         navMenu.classList.remove('active');
+//         mobileMenuToggle.classList.remove('active');
+//         // Trigger the link's default behavior (e.g., navigate to href)
+//         if (link.href) {
+//             window.location.href = link.href;
+//         }
+//     }, { passive: false });
+// });
+
+// Close mobile menu when clicking or tapping on a link
+const navLinks = document.querySelectorAll('.nav-link, .dropdown-item');
 navLinks.forEach(link => {
-    link.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        navMenu.classList.remove('active');
-        mobileMenuToggle.classList.remove('active');
-        // Trigger the link's default behavior (e.g., navigate to href)
-        if (link.href) {
-            window.location.href = link.href;
-        }
-    }, { passive: false });
+    ['click', 'touchstart'].forEach(eventType => {
+        link.addEventListener(eventType, (e) => {
+            e.preventDefault();
+            navMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            // Navigate to the link's href after closing the menu
+            if (link.href && eventType === 'click') {
+                window.location.href = link.href;
+            }
+        }, { passive: false });
+    });
 });
+
 // Mobile Menu Toggle
+
 // const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
 // const navMenu = document.getElementById('nav-menu');
 
@@ -39,7 +70,7 @@ navLinks.forEach(link => {
 //     mobileMenuToggle.classList.toggle('active');
 // });
 
-// Close mobile menu when clicking on a link
+// // Close mobile menu when clicking on a link
 // const navLinks = document.querySelectorAll('.nav-link, .dropdown-item');
 // navLinks.forEach(link => {
 //     link.addEventListener('click', () => {
@@ -105,7 +136,6 @@ formInputs.forEach(input => {
 });
 
 // Contact Form Submission
-//const contactForm = document.getElementById('contact-form');
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -135,6 +165,7 @@ if (contactForm) {
     }
   });
 }
+
 
 // Notification system
 function showNotification(message, type = 'info') {
@@ -305,16 +336,7 @@ function typeWriter(element, text, speed = 100) {
     type();
 }
 
-// Initialize typing effect on page load (uncomment to enable)
-// document.addEventListener('DOMContentLoaded', () => {
-//     const heroTitle = document.querySelector('.hero-title');
-//     if (heroTitle) {
-//         const originalText = heroTitle.textContent;
-//         typeWriter(heroTitle, originalText, 50);
-//     }
-// });
 
-// Add bounce effect to CTA buttons
 const ctaButtons = document.querySelectorAll('.btn-primary, .btn-secondary');
 ctaButtons.forEach(button => {
     button.addEventListener('click', function(e) {
