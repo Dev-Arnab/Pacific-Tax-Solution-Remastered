@@ -25,8 +25,23 @@ const dropdownMenu = document.querySelector('.dropdown-menu');
 if (dropdownToggle && dropdownMenu) {
     ['click', 'touchstart'].forEach(eventType => {
         dropdownToggle.addEventListener(eventType, (e) => {
-            e.preventDefault();
-            dropdownMenu.classList.toggle('active');
+            e.preventDefault(); // Prevent default navigation
+            // Only toggle dropdown on mobile (screen width <= 768px)
+            if (window.innerWidth <= 768) {
+                dropdownMenu.classList.toggle('active');
+            } else {
+                // On desktop, allow navigation to services section
+                const target = document.querySelector(dropdownToggle.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
         }, { passive: false });
     });
 }
