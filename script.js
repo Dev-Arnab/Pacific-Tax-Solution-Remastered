@@ -60,7 +60,7 @@ if (dropdownToggle && dropdownMenu) {
 // });
 
 // Close mobile menu when clicking or tapping on a link
-const navLinks = document.querySelectorAll('.nav-link, .dropdown-item');
+const navLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item');
 navLinks.forEach(link => {
     ['click', 'touchstart'].forEach(eventType => {
         link.addEventListener(eventType, (e) => {
@@ -74,6 +74,19 @@ navLinks.forEach(link => {
         }, { passive: false });
     });
 });
+
+// Add this after the navLinks event listener:
+if (window.innerWidth <= 768) { // Only for mobile
+    const mobileDropdownToggle = document.querySelector('.dropdown-toggle');
+    if (mobileDropdownToggle) {
+        mobileDropdownToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation(); // Prevent the navLink click handler from running
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            dropdownMenu.classList.toggle('active');
+        });
+    }
+}
 
 // Mobile Menu Toggle
 
