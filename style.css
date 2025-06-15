@@ -175,7 +175,7 @@ body {
 }
 
 .btn-book-nav:hover {
-    background: #B91C1C;
+    background: #450505;;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
 }
@@ -761,7 +761,7 @@ body {
     font-weight: 300;
 }
 
-.hero-contact p {
+ p {
     margin-bottom: 5px;
     font-family: sans-serif;
     font-size: 1.3rem;
