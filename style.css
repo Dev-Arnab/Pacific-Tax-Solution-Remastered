@@ -1355,6 +1355,6 @@ body {
 
 @media (max-width: 480px) {
     .calendly-inline-widget {
-        height: 450px !important;
+        height: 800px !important;
     }
 }
