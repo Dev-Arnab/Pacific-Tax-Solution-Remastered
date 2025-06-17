@@ -167,6 +167,9 @@ formInputs.forEach(input => {
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    document.getElementById('replyto').value = document.getElementById('email').value;
+
     
     const submitButton = contactForm.querySelector('button[type="submit"]');
     submitButton.disabled = true;
