@@ -808,6 +808,11 @@ body {
         font-size: 2.8rem;
     }
 
+    .hero-right-section {
+         /* Increase width for larger screens */
+        margin-right: 200px; 
+    }
+
 }
 
 /* Large Screens */
@@ -819,7 +824,7 @@ body {
     }
     
     .hero-right-section {
-        margin-left: 100px;
+        margin-left: 100px; 
     }
     
     .hero-maple {
