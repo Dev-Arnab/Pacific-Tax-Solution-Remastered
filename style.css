@@ -512,7 +512,7 @@ body {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1.3fr;
     gap: 40px;
     margin-bottom: 40px;
 }
@@ -807,6 +807,7 @@ body {
     .section-title {
         font-size: 2.8rem;
     }
+
 }
 
 /* Large Screens */
@@ -816,7 +817,6 @@ body {
         margin-left: 0;
         padding: 0 20px;
     }
-    
     
     .hero-right-section {
         margin-left: 100px;
@@ -837,6 +837,8 @@ body {
         padding: 40px 0;
         min-height: auto;
     }
+
+
     .hero::before {
         width: 100%;
         height: 40%;
@@ -945,6 +947,8 @@ body {
     .nav-container {
         padding: 0 15px;
     }
+
+
 
     .nav-menu {
         position: fixed;
@@ -1193,7 +1197,8 @@ body {
     .hero-contact {
         padding: 15px;
         padding-bottom: 50px;
-        max-width: 300px;
+        max-width: 350px;
+
     }
 
     .hero-contact h1 {
