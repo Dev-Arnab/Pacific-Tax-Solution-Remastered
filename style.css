@@ -678,6 +678,12 @@ body {
     text-align: left; /* Ensure services section is left-aligned */
 }
 
+.hero-services a{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
 .hero-services h3 {
     font-size: 1.8rem;
     margin-bottom: 1.2rem;
