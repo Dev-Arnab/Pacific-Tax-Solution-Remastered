@@ -253,6 +253,13 @@ body {
     margin: 0 auto;
 }
 
+.section-subtitle-p {
+    font-size: 1.125rem;
+    color: #6B7280;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
 /* About Section */
 .about {
     padding: 100px 0;
